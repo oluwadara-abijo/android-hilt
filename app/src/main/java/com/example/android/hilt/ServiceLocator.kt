@@ -23,7 +23,6 @@ import com.example.android.hilt.data.AppDatabase
 import com.example.android.hilt.data.LoggerLocalDataSource
 import com.example.android.hilt.navigator.AppNavigator
 import com.example.android.hilt.navigator.AppNavigatorImpl
-import com.example.android.hilt.util.DateFormatter
 
 class ServiceLocator(applicationContext: Context) {
 
@@ -34,8 +33,6 @@ class ServiceLocator(applicationContext: Context) {
     ).build()
 
     val loggerLocalDataSource = LoggerLocalDataSource(logsDatabase.logDao())
-
-    fun provideDateFormatter() = DateFormatter()
 
     fun provideNavigator(activity: FragmentActivity): AppNavigator {
         return AppNavigatorImpl(activity)
